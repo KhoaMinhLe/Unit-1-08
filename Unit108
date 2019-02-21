@@ -1,0 +1,48 @@
+//Created by: Khoa Le
+//Created on: Feb 19
+//This program generates 10 random numbers from 1 - 99 and finds the max number and min number.
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Unit108 {
+
+	public static void main(String[] args) {
+		
+		int[] array = new int[10];
+		int maxNum = array[0];
+		
+		//Generating 10 random numbers and putting them in the array.
+		for(int i = 0; i < array.length; i++) {
+			array[i] = (int)(Math.random() * 99 + 1);
+			
+			//This if statement is used to find the max value.
+			if (array[i] > maxNum) {
+				maxNum = array[i];
+			}
+			
+		}
+		
+		System.out.println("Generated numbers: " + Arrays.toString(array));
+		System.out.println("The max value is: " + maxNum + ".");
+		
+		//Because I couldn't get the min number from the if statement above, I had to make a new method that's meant
+		//to find the min number. This calls the minNumMethod.
+		int minNum = minNumMethod(array);
+		System.out.println("The min value is: " + minNum + ".");
+	}
+	
+	//This is made to find the min number and will be called.
+	public static int minNumMethod(int[] randArray) {
+		
+		int min = randArray[0];
+		
+		for (int i = 1; i < randArray.length; i++) {
+			if (randArray[i] < min) {
+				min = randArray[i];
+			}
+		}
+		return min;
+	}
+
+}
